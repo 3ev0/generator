@@ -1,0 +1,43 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Next from {{ listname }}!{% endblock %}
+{% block head %}
+{{ super() }}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      {% if category == 'message' %}
+              <div class="alert alert-warning" role="alert">
+            {% else %}
+              <div class="alert alert-{{ category }}" role="alert">
+            {% endif %}
+              {{ message }}
+            </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+          {% if listitem %}
+            <h1>{{ listitem }}</h1>
+            <p>That's your next item from {{ listname }}</p>
+                <form method=post action="{{ posturl }}">
+                <input type="hidden" name="listitem" value="{{ listitem }}">
+                <p><input type=submit value=Confirm role="button" class="btn btn-primary btn-lg"></p>
+                </form>
+          {% else %}
+            <p>Sorry, this is list is depleted!</p>
+          {% endif %}
+      </div>
+    </div>
+
+
+</form>
+    <footer class="footer">
+        <p>&copy; Northwave 2016</p>
+    </footer>
+    </div>
+{% endblock %}
