@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}Pick1 - Load list {{ listname }}!{% endblock %}
+{% block title %}Generator - Load {{ listname }}!{% endblock %}
 {% block head %}
 {{ super() }}
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -27,7 +27,7 @@
     <p><input type=submit value=Load class="btn">
 
 </form>
-    <footer class="footer">
+    <footer>
         <p>&copy; Northwave 2016</p>
     </footer>
     </div>

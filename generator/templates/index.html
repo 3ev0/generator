@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}Generator - Main!{% endblock %}
+{% block title %}Generator - Main{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -20,15 +20,15 @@
 
 {% block content %}
     <div class="container">
-     <h1>Welcome, pick a list to seed me!</h1>
-        <ul id="navigation">
+     <h1>Welcome, pick a generator.</h1>
+        <div class="list-group">
         {% for (listname, url) in listitems %}
-            <li><a href="{{ url }}">{{ listname }}</a></li>
+            <a class="list-group-item" href="{{ url }}">{{ listname }}</a>
             {% else %}
             <p>Uh oh, no lists in database... Why don't you create one!</p>
             {% endfor %}
-        </ul>
-        <footer class="footer">
+        </div>
+        <footer>
             <p>&copy; Northwave 2016</p>
         </footer>
     </div>

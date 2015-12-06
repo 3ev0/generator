@@ -140,4 +140,4 @@ class LoadListForm(Form):
     freetext = TextAreaField(label="List items", description="Paste your items in here")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="127.0.0.1", debug=True, port=5000)
